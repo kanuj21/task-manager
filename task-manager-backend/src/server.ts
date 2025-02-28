@@ -5,7 +5,8 @@ import dotenv from 'dotenv';
 import taskRoutes from './routes/taskRoute';
 import { handleTaskTimeouts } from './utils/timeOutHandller';
 
-dotenv.config();
+dotenv.config(); // Load environment variables
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,11 +17,18 @@ app.use('/', taskRoutes);
 // Start Timeout Handler
 handleTaskTimeouts();
 
+// Use MONGO_URI from .env
+const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT || 5000;
+
+if (!MONGO_URI) {
+  console.error('MONGO_URI is not defined in .env');
+  process.exit(1);
+}
+
 mongoose
-  .connect("mongodb+srv://vatsambuj2:EU1ad76409lw7FXv@cluster0.0a5iq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(MONGO_URI)
   .then(() => {
-    app.listen(process.env.PORT || 5000, () =>
-      console.log(`Server running & connected to DB`)
-    );
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT} & connected to DB`));
   })
-  .catch((err) => console.error(err));
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
