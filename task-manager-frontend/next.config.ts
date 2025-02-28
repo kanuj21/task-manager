@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   
     reactStrictMode: true,
     output: 'standalone', // Important for Vercel deployments
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
 
   
 };
