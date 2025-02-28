@@ -1,4 +1,4 @@
-const BASE_URL: string = 'http://localhost:5000/tasks';//process.env.NEXT_PUBLIC_API_URL || 
+const BASE_URL: string = process.env.NEXT_PUBLIC_API_URL || 'https://task-manager-backend-ruddy-six.vercel.app/tasks';//'http://localhost:5000/tasks';//
 
 // Task interface for type safety
 export interface Task {

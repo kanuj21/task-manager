@@ -16,7 +16,7 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use('/', taskRoutes);
+app.use('/api', taskRoutes);
 
 // Start Timeout Handler
 handleTaskTimeouts();
