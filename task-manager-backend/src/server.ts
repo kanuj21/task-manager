@@ -8,7 +8,11 @@ import { handleTaskTimeouts } from './utils/timeOutHandller';
 dotenv.config(); // Load environment variables
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://task-manager-pf41.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
