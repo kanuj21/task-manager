@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import taskRoutes from './routes/taskRoute';
-import { handleTaskTimeouts } from './utils/timeOutHandller';
+import taskRoutes from '../src/routes/taskRoute';
+import { handleTaskTimeouts } from '../src/utils/timeOutHandller';
 
 dotenv.config(); // Load environment variables
 
