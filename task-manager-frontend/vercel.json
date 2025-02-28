@@ -7,6 +7,10 @@
         "npm install --legacy-peer-deps",
         "npm run build"
       ]
+    },
+    "scripts": {
+        "vercel-build": "npm install && next build"
     }
+
   }
   
