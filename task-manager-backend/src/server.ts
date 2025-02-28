@@ -9,8 +9,9 @@ dotenv.config(); // Load environment variables
 
 const app = express();
 app.use(cors({
-  origin: "https://task-manager-pf41.vercel.app",
+  origin: "*",  // Change this if necessary
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 app.use(express.json());
